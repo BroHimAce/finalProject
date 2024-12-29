@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Online Shop - Home</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<header>
+    <h1>Online Shop</h1>
+    <nav>
+        <a th:href="@{/products}">Products</a>
+        <a th:href="@{/login}">Login</a>
+        <a th:href="@{/register}">Register</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h2>Welcome!</h2>
+    <p>Browse our products, manage your cart, and place orders, all in one place.</p>
+    <p>
+        <a th:href="@{/products}" class="button-link">Start Shopping</a>
+    </p>
+</div>
+
+<footer>
+    <p>© 2024 Online Shop. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

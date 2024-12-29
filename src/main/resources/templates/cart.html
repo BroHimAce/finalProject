@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Online Shop - Cart</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<header>
+    <h1>Online Shop</h1>
+    <nav>
+        <a th:href="@{/}">Home</a>
+        <a th:href="@{/products}">Products</a>
+        <a th:href="@{/orders}">My Orders</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h2>My Cart</h2>
+    <table>
+        <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Subtotal (USD)</th>
+            <th>Remove</th>
+        </tr>
+        <tr th:each="item : ${cartItems}">
+            <td th:text="${item.product.name}">Product Name</td>
+            <td th:text="${item.quantity}">0</td>
+            <td th:text="${#numbers.formatDecimal(item.product.price * item.quantity, 2, 2)}">0.00</td>
+            <td>
+                <form th:action="@{/api/cart/remove/{cartItemId}(cartItemId=${item.id})}" method="delete">
+                    <button type="submit">Remove</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+    <br>
+    <a th:href="@{/checkout}" class="button-link">Proceed to Checkout</a>
+    <br><br>
+    <form th:action="@{/api/cart/clear}" method="delete">
+        <button type="submit">Clear Cart</button>
+    </form>
+</div>
+
+<footer>
+    <p>© 2024 Online Shop</p>
+</footer>
+
+</body>
+</html>
+
+</p>
+</main>
+</body>
+</html>

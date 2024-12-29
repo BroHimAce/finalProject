@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Online Shop - Register</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<header>
+  <h1>Online Shop</h1>
+  <nav>
+    <a th:href="@{/}">Home</a>
+    <a th:href="@{/login}">Login</a>
+  </nav>
+</header>
+
+<div class="container">
+  <h2>Register</h2>
+  <form th:action="@{/api/auth/register}" method="post">
+    <label>Username:</label>
+    <input type="text" name="username" required>
+
+    <label>Email:</label>
+    <input type="email" name="email" required>
+
+    <label>Password:</label>
+    <input type="password" name="password" required>
+
+    <button type="submit">Sign Up</button>
+  </form>
+</div>
+
+<footer>
+  <p>© 2024 Online Shop</p>
+</footer>
+
+</body>
+</html>

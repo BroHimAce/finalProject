@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Online Shop - Products</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<header>
+  <h1>Online Shop</h1>
+  <nav>
+    <a th:href="@{/}">Home</a>
+    <a th:href="@{/cart}">Cart</a>
+    <a th:href="@{/orders}">My Orders</a>
+  </nav>
+</header>
+
+<div class="container">
+  <h2>Product Listing</h2>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Price (USD)</th>
+      <th>Add to Cart</th>
+    </tr>
+    <tr th:each="product : ${products}">
+      <td th:text="${product.name}">Product Name</td>
+      <td th:text="${product.description}">Description</td>
+      <td th:text="${product.price}">0.00</td>
+      <td>
+        <form th:action="@{/api/cart/add}" method="post">
+          <input type="hidden" name="productId" th:value="${product.id}" />
+          <input type="number" name="quantity" value="1" min="1" style="width:60px;">
+          <button type="submit">Add</button>
+        </form>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<footer>
+  <p>© 2024 Online Shop</p>
+</footer>
+
+</body>
+</html>
