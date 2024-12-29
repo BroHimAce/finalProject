@@ -20,7 +20,6 @@ public class Customer {
     private String email;
     private String password;
 
-    // Roles for Spring Security
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "customer_role",

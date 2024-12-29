@@ -33,25 +33,24 @@ public class WebController {
 
     @GetMapping("/")
     public String homePage() {
-        return "index"; // templates/index.html
+        return "index";
     }
 
     @GetMapping("/login")
     public String loginPage() {
-        return "login"; // templates/login.html
+        return "login";
     }
 
     @GetMapping("/register")
     public String registerPage() {
-        return "register"; // templates/register.html
+        return "register";
     }
 
     @GetMapping("/products")
     public String productListingPage(Model model) {
-        // Load products from DB
         List<Product> products = productService.findAll();
         model.addAttribute("products", products);
-        return "product-list"; // templates/product-list.html
+        return "product-list";
     }
 
     @GetMapping("/cart")
@@ -61,16 +60,16 @@ public class WebController {
         }
         Customer customer = getCurrentCustomer(authentication);
         model.addAttribute("cartItems", cartService.getCartItems(customer));
-        return "cart"; // templates/cart.html
+        return "cart";
     }
 
     @GetMapping("/checkout")
     public String checkoutPage(Authentication authentication) {
-        // In a real scenario, you'd show shipping/payment info, etc.
+
         if (authentication == null) {
             return "redirect:/login";
         }
-        return "checkout"; // templates/checkout.html
+        return "checkout";
     }
 
     @GetMapping("/orders")
@@ -80,7 +79,7 @@ public class WebController {
         }
         Customer customer = getCurrentCustomer(authentication);
         model.addAttribute("orders", orderService.getOrdersByCustomer(customer));
-        return "order-history"; // templates/order-history.html
+        return "order-history";
     }
 
     private Customer getCurrentCustomer(Authentication authentication) {

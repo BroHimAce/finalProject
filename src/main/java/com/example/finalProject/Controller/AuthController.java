@@ -33,8 +33,6 @@ public class AuthController {
         return ResponseEntity.ok(created);
     }
 
-    // Optional: If you want a custom login endpoint (JWT, etc.);
-    // For now, we rely on Spring Security formLogin.
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestParam String username, @RequestParam String password) {
         // Dummy example: In real scenario, you'd authenticate with AuthenticationManager
